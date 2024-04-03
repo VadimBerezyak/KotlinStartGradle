@@ -1,11 +1,3 @@
-enum class Color {
-    RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET
+enum class Color( val value : Int ) {
+    RED(1), ORANGE(2), YELLOW(3), GREEN(4), BLUE(5), INDIGO(6), VIOLET(7)
 }
-//fun main(){
-//   val color: Color = Color.BLUE
-//    println(color.name)
-//    for(day in Color.values())
-//        println(day)
-//
-//    println(Color.valueOf("ORANGE").ordinal)
-//}

@@ -30,10 +30,16 @@ fun main() {
     val p1 = Point(x = 0.0f, y = 3.0f)
     val p2 = Point(x = 4.0f, y = 0.0f)
     val rectangle = Rectangle(p1, p2)
+    val circle = Circle(radius = 3.0f, center = p1)
 
-    println(p1.distance(p2))
-    println(rectangle.squareOfRectangle())
-    println(rectangle.perimeterOfRectangle())
+    println("Distance = " + p1.distance(p2))
+    println("Square of rectangle = " + rectangle.squareOfShape())
+    println("Perimetr of rectangle = " + rectangle.perimeterOfShape())
+
+    println("Square of circle = " + circle.squareOfShape())
+    println("Perimetr of circle = " + circle.perimeterOfShape())
+
+
 
 }
 

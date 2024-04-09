@@ -1,6 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 
 fun main() {
     val firstCar = Car(model = "VAZ", year = 2023, color = Color.valueOf("RED"), luxVersion = true)
@@ -33,11 +32,11 @@ fun main() {
     val circle = Circle(radius = 3.0f, center = p1)
 
     println("Distance = " + p1.distance(p2))
-    println("Square of rectangle = " + rectangle.squareOfShape())
-    println("Perimetr of rectangle = " + rectangle.perimeterOfShape())
+    println("Square of rectangle = " + rectangle.calculateAreaOfShape())
+    println("Perimetr of rectangle = " + rectangle.calculatePerimeterOfShape())
 
-    println("Square of circle = " + circle.squareOfShape())
-    println("Perimetr of circle = " + circle.perimeterOfShape())
+    println("Square of circle = " + circle.calculateAreaOfShape())
+    println("Perimetr of circle = " + circle.calculatePerimeterOfShape())
 
 
 

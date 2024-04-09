@@ -1,7 +1,7 @@
 open interface Shape {
 
-    fun squareOfShape(): Float
+    fun calculateAreaOfShape(): Float
 
-    fun perimeterOfShape(): Float
+    fun calculatePerimeterOfShape(): Float
 
 }

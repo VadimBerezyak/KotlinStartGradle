@@ -1,12 +1,12 @@
 import kotlin.math.PI
 
-class Circle (private val radius: Float, center : Point) : Shape{
-    override fun calculatePerimeterOfShape(): Float {
-        return (PI*2.0*radius).toFloat()
+class Circle(private val radius: Float) : Shape {
+    override fun calculateShapePerimeter(): Float {
+        return (PI * 2.0 * radius).toFloat()
     }
 
-    override fun calculateAreaOfShape(): Float {
-        return (PI*radius*radius).toFloat()
+    override fun calculateShapeSquare(): Float {
+        return (radius * radius * PI).toFloat()
     }
 
 }

@@ -1,6 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import java.util.stream.Collector
 
 
 fun main() {
@@ -48,15 +47,31 @@ fun main() {
         Person("Alice", 30),
         Person("Eve", 40),
         Person("Bob", 25),
-        Person("Bob", 27)
+        Person("Bob", 25)
     )
-    val count = 0
-    val duplicatesPerson = people.groupingBy { person -> person }
+
+//    val duplicatesPerson = people.groupingBy { person -> person }
+//        .eachCount()
+
+//    val maxCountOfDuplicatesPerson = duplicatesPerson.maxOfOrNull { it.value }
+//    val theMostDuplicatesPerson = duplicatesPerson.filterValues { it == maxCountOfDuplicatesPerson }.keys
+//    println(theMostDuplicatesPerson.forEach { it -> println(it.name + " " + it.age) })
+      val duplicatesPerson = people.groupingBy { it }
         .eachCount()
+        .maxByOrNull { it.value }
+        ?.key
+    println(duplicatesPerson)
 
-    val maxCountOfDuplicatesPerson = duplicatesPerson.maxOfOrNull { it.value }
 
-    val theMostDuplicatesPerson = duplicatesPerson.filterValues { it == maxCountOfDuplicatesPerson }.keys
-    println(theMostDuplicatesPerson)
+    val listOfStrings = listOf("abc", "aBC", "AAA", "azx", "brt", "Brt", "date", "Zza")
 
+    val resultMap = listOfStrings.groupBy({ it.first().lowercase() }, {it})
+
+    println(resultMap)
 }
+
+
+
+
+
+

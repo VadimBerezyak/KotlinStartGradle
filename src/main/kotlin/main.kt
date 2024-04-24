@@ -16,12 +16,12 @@ fun main() {
 
     //десериализация
     val carJson2 = """{
-        "model" : "VAZ",
+    "model" : "VAZ",
         "year" : "2023",
-        "color" : "RED",
-        "luxVersion" : true
-         }"""
-    //val carFromJson: Car = mapper.readValue(content = carJson2, valueType = Car::class.java)
+            "color" : "RED",
+                "luxVersion" : true
+} """
+//val carFromJson: Car = mapper.readValue(content = carJson2, valueType = Car::class.java)
 
     println(firstCar.isCarsSimilar(secondCar))
     println(firstCar.isCarsTheSame(secondCar))
@@ -45,19 +45,18 @@ fun main() {
         Person("Bob", 25),
         Person("Charlie", 35),
         Person("Alice", 30),
+        Person("Alice", 30),
         Person("Eve", 40),
         Person("Bob", 25),
-        Person("Bob", 25)
+        Person("Bob", 27)
     )
     val count = 0
-    val duplicates = people.groupingBy { person -> person}
+    val duplicatesPerson = people.groupingBy { person -> person }
         .eachCount()
-    //.maxOfOrNull { it.value }
-    val maxCount = duplicates.maxOfOrNull { it.value }
-    for (i in duplicates.values){
-        if (i == maxCount){
-            val maximum11 = duplicates.filterValues { it == maxCount }.keys
-            println(maximum11)
-        }
-    }
+
+    val maxCountOfDuplicatesPerson = duplicatesPerson.maxOfOrNull { it.value }
+
+    val theMostDuplicatesPerson = duplicatesPerson.filterValues { it == maxCountOfDuplicatesPerson }.keys
+    println(theMostDuplicatesPerson)
+
 }

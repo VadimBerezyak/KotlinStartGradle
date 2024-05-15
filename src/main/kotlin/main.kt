@@ -79,9 +79,23 @@ fun main() {
     } else {
         println("Не все элементы больше 10")
     }
+//Book(name, rating). Есть List<Book> - надо найти топ 5 книг с наивысшим рейтингом
 
+    val listOfBooks = mutableListOf (
+     Book(name = "Java", rating = 6),
+     Book(name = "Kotlin", rating = 5),
+     Book(name = "C", rating = 4),
+     Book(name = "C++", rating = 3),
+     Book(name = "C#", rating = 2),
+     Book(name = "Basic", rating = 1)
+     )
+
+    val sortedListOfBooks = listOfBooks.sortedBy { it.rating }
+    val listOfTop5books = sortedListOfBooks.slice(sortedListOfBooks.size-5..sortedListOfBooks.lastIndex)
+    println(listOfTop5books)
 
 }
+
 
 
 

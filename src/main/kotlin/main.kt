@@ -56,7 +56,7 @@ fun main() {
 //    val maxCountOfDuplicatesPerson = duplicatesPerson.maxOfOrNull { it.value }
 //    val theMostDuplicatesPerson = duplicatesPerson.filterValues { it == maxCountOfDuplicatesPerson }.keys
 //    println(theMostDuplicatesPerson.forEach { it -> println(it.name + " " + it.age) })
-      val duplicatesPerson = people.groupingBy { it }
+    val duplicatesPerson = people.groupingBy { it }
         .eachCount()
         .maxByOrNull { it.value }
         ?.key
@@ -64,22 +64,21 @@ fun main() {
 
 
     val listOfStrings = listOf("abc", "aBC", "AAA", "azx", "brt", "Brt", "date", "Zza")
-    val resultMap = listOfStrings.groupBy({ it.first().lowercase() }, {it})
+    val resultMap = listOfStrings.groupBy({ it.first().lowercase() }, { it })
     println(resultMap)
 
 
 //есть List<Int> - проверить все ли элементы в списке больше 10
-    val listOfNumbers = mutableListOf(10,10)
+    val listOfNumbers = mutableListOf(10, 10)
     var sumOfListNumbers = 0
-    for(i in listOfNumbers){
+    for (i in listOfNumbers) {
         sumOfListNumbers += i
-        }
-    if (sumOfListNumbers/10>=listOfNumbers.size){
+    }
+    if (sumOfListNumbers / 10 >= listOfNumbers.size) {
         println("Все элементы больше 10")
-    } else{
+    } else {
         println("Не все элементы больше 10")
     }
-
 
 
 }

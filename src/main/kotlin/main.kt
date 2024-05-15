@@ -98,7 +98,7 @@ fun main() {
 
     //Список строк - объединить в одну в виде [x,y,z] - то есть добавить префикс и постфикс, сепаратор - запятая
 
-    val listOgString = listOf(
+    val strings = listOf(
         "q",
         "w",
         "e",
@@ -106,7 +106,7 @@ fun main() {
         "t",
         "y"
     )
-
+    println(strings.joinToString(separator = "; ", prefix = "[", postfix = "]") { it })
 
 }
 

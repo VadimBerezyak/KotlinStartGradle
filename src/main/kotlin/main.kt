@@ -69,43 +69,45 @@ fun main() {
 
 
 //есть List<Int> - проверить все ли элементы в списке больше 10
-    val listOfNumbers = mutableListOf(10, 10)
-    var sumOfListNumbers = 0
-    for (i in listOfNumbers) {
-        sumOfListNumbers += i
-    }
-    if (sumOfListNumbers / 10 >= listOfNumbers.size) {
-        println("Все элементы больше 10")
-    } else {
-        println("Не все элементы больше 10")
-    }
+    val numbers = listOf(100, 11, 12)
+    val result1 =  numbers.min()>10 // оба варианта корректны
+    val result2 = numbers.all { it > 10 }
+    println("$result2 $result1")
+    println("Все элементы больше 10")
+
 //Book(name, rating). Есть List<Book> - надо найти топ 5 книг с наивысшим рейтингом
 
     val listOfBooks = mutableListOf(
         Book(name = "Java", rating = 6),
-        Book(name = "Kotlin", rating = 5),
+        Book(name = "Kotlin", rating = 6),
         Book(name = "C", rating = 4),
         Book(name = "C++", rating = 3),
         Book(name = "C#", rating = 2),
-        Book(name = "Basic", rating = 1)
+        Book(name = "Basic", rating = 7)
     )
 
-    val sortedListOfBooks = listOfBooks.sortedBy { it.rating }
-    val listOfTop5books = sortedListOfBooks.slice(sortedListOfBooks.size - 5..sortedListOfBooks.lastIndex)
-    println(listOfTop5books)
+    val sortedListOfBooks = listOfBooks.sortedByDescending { it.rating }
+                                        .take(5)
+    println(sortedListOfBooks)
 
     // есть Map<String,Int>, имя человека и возраст. Надо преобразовать ее в список строк формата name:age
 
-    val hashMapOfPeople = hashMapOf("Bob" to 55, "John" to 66, "Vadim" to 77)
-    println(hashMapOfPeople.size)
-    var newListOfPeople : MutableList<String> = mutableListOf()
-    for (i in hashMapOfPeople) {
-        var strEl= i.key+":"+i.value
-        println(strEl)
-        newListOfPeople.add(strEl)
-    }
+    val peopleAgeByName = hashMapOf("Bob" to 55, "John" to 66, "Vadim" to 77)
+    println(peopleAgeByName.toList().
+                            joinToString(separator = "; ", prefix = "{", postfix = "}") { it.first + ":" + it.second })
 
-    println(newListOfPeople)
+    //Список строк - объединить в одну в виде [x,y,z] - то есть добавить префикс и постфикс, сепаратор - запятая
+
+    val listOgString = listOf(
+        "q",
+        "w",
+        "e",
+        "r",
+        "t",
+        "y"
+    )
+
+
 }
 
 

@@ -81,22 +81,31 @@ fun main() {
     }
 //Book(name, rating). Есть List<Book> - надо найти топ 5 книг с наивысшим рейтингом
 
-    val listOfBooks = mutableListOf (
-     Book(name = "Java", rating = 6),
-     Book(name = "Kotlin", rating = 5),
-     Book(name = "C", rating = 4),
-     Book(name = "C++", rating = 3),
-     Book(name = "C#", rating = 2),
-     Book(name = "Basic", rating = 1)
-     )
+    val listOfBooks = mutableListOf(
+        Book(name = "Java", rating = 6),
+        Book(name = "Kotlin", rating = 5),
+        Book(name = "C", rating = 4),
+        Book(name = "C++", rating = 3),
+        Book(name = "C#", rating = 2),
+        Book(name = "Basic", rating = 1)
+    )
 
     val sortedListOfBooks = listOfBooks.sortedBy { it.rating }
-    val listOfTop5books = sortedListOfBooks.slice(sortedListOfBooks.size-5..sortedListOfBooks.lastIndex)
+    val listOfTop5books = sortedListOfBooks.slice(sortedListOfBooks.size - 5..sortedListOfBooks.lastIndex)
     println(listOfTop5books)
 
+    // есть Map<String,Int>, имя человека и возраст. Надо преобразовать ее в список строк формата name:age
+
+    val hashMapOfPeople = hashMapOf("Bob" to 55, "John" to 66, "Vadim" to 77)
+    println(hashMapOfPeople.size)
+    var newListOfPeople : MutableList<String> = mutableListOf()
+    for (i in hashMapOfPeople) {
+        var strEl= i.key+":"+i.value
+        println(strEl)
+        newListOfPeople.add(strEl)
+    }
+    println(newListOfPeople)
 }
-
-
 
 
 

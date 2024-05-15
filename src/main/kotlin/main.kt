@@ -104,6 +104,7 @@ fun main() {
         println(strEl)
         newListOfPeople.add(strEl)
     }
+
     println(newListOfPeople)
 }
 

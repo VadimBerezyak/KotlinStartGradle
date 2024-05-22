@@ -108,6 +108,23 @@ fun main() {
     )
     println(strings.joinToString(separator = "; ", prefix = "[", postfix = "]") { it })
 
+//есть List<List<Int>> - то есть список из списков чисел - преобразовать в единый список, убрав повторения
+
+    val newNumbers = listOf(listOf(1,2,3), listOf(2,3,4))
+    println(newNumbers.flatten().toSet())
+
+
+//есть List<String> - разделить его на две части - палиндромы и нет (partition)
+
+    val newStrings = listOf("asdsa", "asddsa", "asdasd", "a")
+
+    val (polindrome, notPolindrome) = newStrings.partition {isPalindrome(it)}
+    println(polindrome)
+    println(notPolindrome)
+    }
+fun isPalindrome(str: String): Boolean {
+    val reversedStr = str.reversed()
+    return str == reversedStr
 }
 
 

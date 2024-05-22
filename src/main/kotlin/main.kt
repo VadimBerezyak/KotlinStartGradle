@@ -1,5 +1,10 @@
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import java.time.DayOfWeek
+import java.time.LocalDateTime
+import java.time.Month
+import java.util.*
+import javax.print.attribute.standard.DateTimeAtCreation
 
 
 fun main() {
@@ -121,11 +126,27 @@ fun main() {
     val (polindrome, notPolindrome) = newStrings.partition {isPalindrome(it)}
     println(polindrome)
     println(notPolindrome)
-    }
-fun isPalindrome(str: String): Boolean {
-    val reversedStr = str.reversed()
-    return str == reversedStr
+
+//Есть класс Event, который в себе содержит date: LocalDateTime
+//надо реализовать метод поиск наименьшей даты среди списка ивентов. Вернуть 1 ивент с наименьшей (самой ранней) датой. null не учитываем
+    val events = listOf(
+        Event(date = LocalDateTime.now(), id = UUID.randomUUID()),
+        Event(date = LocalDateTime.of(2020, 12, 1, 12, 12, 12, 21312), id = UUID.randomUUID()),
+        Event(date = LocalDateTime.of(2021, 12, 1, 12, 12, 12, 21312), id = UUID.randomUUID()),
+        Event(date = null, id = UUID.randomUUID())
+    )
+    println(findEventWithEarliestDate(events))
+
+
 }
+fun findEventWithEarliestDate(events: List<Event>): LocalDateTime? {
+    return events.mapNotNull{it.date}.min()
+}
+
+    fun isPalindrome(str: String): Boolean { //ек низкому регистру
+        val reversedStr = str.reversed()
+        return str == reversedStr
+    }
 
 
 
